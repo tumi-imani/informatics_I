@@ -18,8 +18,9 @@ bool isPalindrome(string &s, int l, int r, int removed) {
     }
     if (removed == 1) return false;
 
-    return isPalindrome(s, l+1, r, removed+1) ||
-            isPalindrome(s, l, r-1, removed+1);
+    bool isPal = isPalindrome(s, l+1, r, removed+1) || isPalindrome(s, l, r-1, removed+1);
+
+    return isPal;
 }
 
 bool validPalindrome(string s) {
