@@ -1,13 +1,6 @@
-/**
- Reminder: Use Recursion
- */
-
 // #include <bits/stdc++.h>
 
 #include <iostream>
-#include <vector>
-#include <algorithm>
-#include <utility>
 
 using namespace std;
 
