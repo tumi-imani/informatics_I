@@ -11,37 +11,32 @@ int n,k;
 int max_diamonds(vector<int> &d) {
     sort(d.begin(), d.end());
     vector<int> left(n), right(n);
+    int maxDiamonds = 0;
 
     int l = 0;
-    for (int r=0; r<n; r++) {
-        while (d[r] - d[l] > k) {
+    for (int r=0; r<n; r++){
+        while (d[r] - d[l] > k){
             l++;
         }
         int current = r - l + 1;
-        if (r == 0)
-            left[r] = current;
-        else
-            left[r] = max(left[r-1], current);
+        if (r == 0) left[r] = current;
+        else left[r] = max(left[r-1], current);
     }
-
     int r = n - 1;
-    for (int i=n-1; i>=0; i--) {
-        while (d[r] - d[i] > k) {
+    for (int i=n-1; i>=0; i--){
+        while (d[r] - d[i] > k){
             r--;
         }
         int current = r - i + 1;
-        if (i == n - 1)
-            right[i] = current;
-        else
-            right[i] = max(right[i+1], current);
+        if (i == n - 1) right[i] = current;
+        else right[i] = max(right[i+1], current);
     }
 
-    int ans = 0;
-    for (int i = 0; i < n - 1; i++) {
-        ans = max(ans, left[i] + right[i+1]);
+    for (int i = 0; i < n - 1; i++){
+        maxDiamonds = max(maxDiamonds, left[i] + right[i+1]);
     }
 
-    return ans;
+    return maxDiamonds;
 }
 
 
